@@ -1,7 +1,5 @@
 import 'package:e_commerce_app/core/config/theme/app_theme.dart';
 import 'package:e_commerce_app/firebase_options.dart';
-import 'package:e_commerce_app/presentation/auth/pages/selection_gender_and_age_view.dart';
-import 'package:e_commerce_app/presentation/auth/pages/sign_in.dart';
 import 'package:e_commerce_app/presentation/splash/bloc/splash_cubit.dart';
 import 'package:e_commerce_app/presentation/splash/pages/splash.dart';
 import 'package:e_commerce_app/service_locator.dart';
