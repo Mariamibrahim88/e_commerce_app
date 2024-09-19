@@ -6,6 +6,7 @@ import 'package:e_commerce_app/common/widgets/button/reactive_button.dart';
 import 'package:e_commerce_app/data/auth/models/user_signin_req.dart';
 import 'package:e_commerce_app/domain/auth/use_cases/sign_in.dart';
 import 'package:e_commerce_app/presentation/auth/pages/forgot_password.dart';
+import 'package:e_commerce_app/presentation/home/pages/home.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,6 +36,7 @@ class EnterPasswordView extends StatelessWidget {
                 );
                 ScaffoldMessenger.of(context).showSnackBar(snackbar);
               } else if (state is ButtonLoaded) {
+                AppNavigator.pushAndRemove(context, const HomePage());
                 var snackbar = const SnackBar(
                   content: Text(
                     'Signin successfully',

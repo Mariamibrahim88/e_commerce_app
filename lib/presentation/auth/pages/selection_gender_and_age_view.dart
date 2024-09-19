@@ -9,7 +9,6 @@ import 'package:e_commerce_app/domain/auth/use_cases/sign_up.dart';
 import 'package:e_commerce_app/presentation/auth/bloc/age_display_cubit.dart';
 import 'package:e_commerce_app/presentation/auth/bloc/age_selection_cubit.dart';
 import 'package:e_commerce_app/presentation/auth/bloc/gendr_cubit.dart';
-import 'package:e_commerce_app/presentation/auth/pages/sign_in.dart';
 import 'package:e_commerce_app/presentation/auth/widgets/age.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

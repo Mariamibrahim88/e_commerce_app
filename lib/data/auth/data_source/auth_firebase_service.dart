@@ -8,8 +8,9 @@ abstract class AuthFirebaseService {
   Future<Either> signup(UserCreationReq user);
   Future<Either> signin(UserSigninReq user);
   Future<Either> sendPasswordResetEmail(String email);
-
+  Future<bool> isLoggedIn();
   Future<Either> getAges();
+  Future<Either> getUsers();
 }
 
 class AuthFirebaseServiceImpl extends AuthFirebaseService {
@@ -85,5 +86,20 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
     } catch (e) {
       return const Left('Please try again');
     }
+  }
+
+  @override
+  Future<bool> isLoggedIn() async {
+    if (FirebaseAuth.instance.currentUser != null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  @override
+  Future<Either> getUsers() {
+    // TODO: implement getUsers
+    throw UnimplementedError();
   }
 }

@@ -2,7 +2,6 @@ import 'package:e_commerce_app/common/bloc/button/button_cubit.dart';
 import 'package:e_commerce_app/common/bloc/button/button_state.dart';
 import 'package:e_commerce_app/common/helper/navigator/app_navigator.dart';
 import 'package:e_commerce_app/common/widgets/appBar/app_bar.dart';
-import 'package:e_commerce_app/common/widgets/button/basic_app_button.dart';
 import 'package:e_commerce_app/common/widgets/button/reactive_button.dart';
 import 'package:e_commerce_app/domain/auth/use_cases/reset_email.dart';
 import 'package:e_commerce_app/presentation/auth/pages/send_email.dart';
