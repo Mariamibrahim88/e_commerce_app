@@ -7,6 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 abstract class AuthFirebaseService {
   Future<Either> signup(UserCreationReq user);
   Future<Either> signin(UserSigninReq user);
+  Future<Either> sendPasswordResetEmail(String email);
 
   Future<Either> getAges();
 }
@@ -66,9 +67,23 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
         message = 'No user found for that email.';
       } else if (e.code == 'wrong-password') {
         message = 'Wrong password provided for that user.';
+      } else {
+        message = 'Check your email and password';
       }
       return Left(
           message); // Return an Either with Left containing the error message
+    }
+  }
+
+  @override
+  Future<Either> sendPasswordResetEmail(String email) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      return const Right(
+        'Password reset email has been sent to your email address',
+      );
+    } catch (e) {
+      return const Left('Please try again');
     }
   }
 }

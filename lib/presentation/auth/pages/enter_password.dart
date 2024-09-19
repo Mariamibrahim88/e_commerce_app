@@ -105,7 +105,7 @@ class EnterPasswordView extends StatelessWidget {
           text: 'Reset',
           recognizer: TapGestureRecognizer()
             ..onTap = () {
-              AppNavigator.push(context, const ForgotPasswordView());
+              AppNavigator.push(context, ForgotPasswordView());
             },
           style: const TextStyle(
             color: Colors.white,

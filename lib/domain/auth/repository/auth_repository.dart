@@ -5,6 +5,7 @@ import 'package:e_commerce_app/data/auth/models/user_signin_req.dart';
 abstract class AuthRepository {
   Future<Either> signup(UserCreationReq user);
   Future<Either> signin(UserSigninReq user);
+  Future<Either> sendPasswordResetEmail(String email);
 
   Future<Either> getAges();
 }

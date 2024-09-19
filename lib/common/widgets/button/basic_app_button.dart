@@ -4,15 +4,24 @@ class BasicAppButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String title;
   final double? height;
+  final double? width;
+
   const BasicAppButton(
-      {required this.onPressed, required this.title, this.height, super.key});
+      {required this.onPressed,
+      required this.title,
+      this.height,
+      this.width,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          minimumSize: Size.fromHeight(height ?? 50),
+          minimumSize: Size(
+            width ?? MediaQuery.of(context).size.width,
+            height ?? 50,
+          ),
         ),
         child: Text(
           title,
