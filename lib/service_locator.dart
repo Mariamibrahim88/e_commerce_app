@@ -2,6 +2,7 @@ import 'package:e_commerce_app/data/auth/data_source/auth_firebase_service.dart'
 import 'package:e_commerce_app/data/auth/repository/auth_repository_impl.dart';
 import 'package:e_commerce_app/domain/auth/repository/auth_repository.dart';
 import 'package:e_commerce_app/domain/auth/use_cases/get_ages.dart';
+import 'package:e_commerce_app/domain/auth/use_cases/get_user.dart';
 import 'package:e_commerce_app/domain/auth/use_cases/is_logged_in.dart';
 import 'package:e_commerce_app/domain/auth/use_cases/reset_email.dart';
 import 'package:e_commerce_app/domain/auth/use_cases/sign_in.dart';
@@ -25,4 +26,5 @@ Future<void> initializeDepencies() async {
   sl.registerSingleton<GetAgesUseCase>(GetAgesUseCase());
   sl.registerSingleton<ResetEmailUseCase>(ResetEmailUseCase());
   sl.registerSingleton<IsLoggedInUseCase>(IsLoggedInUseCase());
+  sl.registerSingleton<GetUserUseCase>(GetUserUseCase());
 }

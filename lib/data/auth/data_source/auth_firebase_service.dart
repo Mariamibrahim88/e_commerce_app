@@ -98,8 +98,18 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
   }
 
   @override
-  Future<Either> getUsers() {
-    // TODO: implement getUsers
-    throw UnimplementedError();
+  Future<Either> getUsers() async {
+    try {
+      var current = FirebaseAuth.instance.currentUser;
+      var user = await FirebaseFirestore.instance
+          .collection('Users')
+          .doc(current?.uid)
+          .get()
+          .then((value) => value.data());
+
+      return Right(user);
+    } catch (e) {
+      return const Left('Please try again');
+    }
   }
 }
