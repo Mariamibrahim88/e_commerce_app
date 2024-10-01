@@ -1,22 +1,21 @@
 import 'package:e_commerce_app/common/bloc/products/product_display_cubit.dart';
 import 'package:e_commerce_app/common/bloc/products/product_display_state.dart';
-import 'package:e_commerce_app/common/helper/navigator/app_navigator.dart';
 import 'package:e_commerce_app/common/widgets/product/product_card.dart';
+import 'package:e_commerce_app/core/config/theme/app_colors.dart';
 import 'package:e_commerce_app/domain/product/entity/product.dart';
-import 'package:e_commerce_app/domain/product/use_cases/get_top_selling.dart';
-import 'package:e_commerce_app/presentation/all_categories/pages/all_categories_page.dart';
+import 'package:e_commerce_app/domain/product/use_cases/get_new_in.dart';
 import 'package:e_commerce_app/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class TopSellingProducts extends StatelessWidget {
-  const TopSellingProducts({super.key});
+class NewInProducts extends StatelessWidget {
+  const NewInProducts({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
-          ProductDisplayCubit(usecase: sl<GetTopSellingProductsUseCase>())
+          ProductDisplayCubit(usecase: sl<GetNewInProductsUseCase>())
             ..displayProducts(),
       child: BlocBuilder<ProductDisplayCubit, ProductDisplayState>(
         builder: (context, state) {
@@ -26,7 +25,7 @@ class TopSellingProducts extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _title(context),
+                _title(),
                 const SizedBox(
                   height: 15,
                 ),
@@ -40,18 +39,19 @@ class TopSellingProducts extends StatelessWidget {
     );
   }
 
-  Widget _title(BuildContext context) {
-    return Row(
+  Widget _title() {
+    return const Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text(
-          'Top Selling',
+        Text(
+          'New In',
           style: TextStyle(
             fontSize: 18,
+            color: AppColors.primary,
             fontWeight: FontWeight.bold,
           ),
         ),
-        const Text(
+        Text(
           'See All',
           style: TextStyle(fontSize: 18),
         ),

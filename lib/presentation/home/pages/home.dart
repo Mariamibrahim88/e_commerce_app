@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/presentation/home/widgets/categories.dart';
 import 'package:e_commerce_app/presentation/home/widgets/header.dart';
+import 'package:e_commerce_app/presentation/home/widgets/new_in_products.dart';
 import 'package:e_commerce_app/presentation/home/widgets/search_field.dart';
 import 'package:e_commerce_app/presentation/home/widgets/top_selling_products.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,11 @@ class HomePage extends StatelessWidget {
                 SizedBox(
                   height: 18,
                 ),
-                TopSellingProducts()
+                TopSellingProducts(),
+                SizedBox(
+                  height: 18,
+                ),
+                NewInProducts(),
               ],
             ),
           ),
