@@ -41,17 +41,17 @@ class TopSellingProducts extends StatelessWidget {
   }
 
   Widget _title(BuildContext context) {
-    return Row(
+    return const Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text(
+        Text(
           'Top Selling',
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
         ),
-        const Text(
+        Text(
           'See All',
           style: TextStyle(fontSize: 18),
         ),

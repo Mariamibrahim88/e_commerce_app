@@ -15,6 +15,7 @@ import 'package:e_commerce_app/domain/category/repository/repository.dart';
 import 'package:e_commerce_app/domain/category/use_cases/categories_use_case.dart';
 import 'package:e_commerce_app/domain/product/repository/product.dart';
 import 'package:e_commerce_app/domain/product/use_cases/get_new_in.dart';
+import 'package:e_commerce_app/domain/product/use_cases/get_products_by_category_id.dart';
 import 'package:e_commerce_app/domain/product/use_cases/get_top_selling.dart';
 import 'package:get_it/get_it.dart';
 
@@ -43,4 +44,6 @@ Future<void> initializeDepencies() async {
   sl.registerSingleton<GetTopSellingProductsUseCase>(
       GetTopSellingProductsUseCase());
   sl.registerSingleton<GetNewInProductsUseCase>(GetNewInProductsUseCase());
+  sl.registerSingleton<GetProductsByCategoryIdUseCase>(
+      GetProductsByCategoryIdUseCase());
 }
