@@ -3,11 +3,13 @@ import 'package:e_commerce_app/usecase/usecase.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductDisplayCubit extends Cubit<ProductDisplayState> {
-  ProductDisplayCubit({required this.usecase}) : super(ProductDisplayLoading());
+  ProductDisplayCubit({required this.usecase})
+      : super(ProductDisplayInitialState());
 
   final Usecase usecase;
 
   void displayProducts({dynamic params}) async {
+    emit(ProductDisplayLoading());
     var returnedData = await usecase.call(
       params: params,
     );
@@ -17,5 +19,9 @@ class ProductDisplayCubit extends Cubit<ProductDisplayState> {
     }, (data) {
       emit(ProductDisplayLoaded(products: data));
     });
+  }
+
+  void initialDisplay() {
+    emit(ProductDisplayInitialState());
   }
 }

@@ -5,4 +5,5 @@ class AppVectors {
   static const appLogo = '${basePath}logo$format';
   static const emailSending = '${basePath}email_sending$format';
   static const profile = '${basePath}profile$formatt';
+  static const search = '${basePath}search$formatt';
 }

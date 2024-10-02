@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? title;
   final Widget? action;
+  final double? height;
   final Color? backgroundColor;
   final bool hideBack;
   const BasicAppbar(
       {this.title,
       this.hideBack = false,
       this.action,
+      this.height,
       this.backgroundColor,
       super.key});
 
@@ -41,5 +43,5 @@ class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => Size.fromHeight(height ?? 80);
 }

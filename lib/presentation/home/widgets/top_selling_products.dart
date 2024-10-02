@@ -1,10 +1,8 @@
 import 'package:e_commerce_app/common/bloc/products/product_display_cubit.dart';
 import 'package:e_commerce_app/common/bloc/products/product_display_state.dart';
-import 'package:e_commerce_app/common/helper/navigator/app_navigator.dart';
 import 'package:e_commerce_app/common/widgets/product/product_card.dart';
 import 'package:e_commerce_app/domain/product/entity/product.dart';
 import 'package:e_commerce_app/domain/product/use_cases/get_top_selling.dart';
-import 'package:e_commerce_app/presentation/all_categories/pages/all_categories_page.dart';
 import 'package:e_commerce_app/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

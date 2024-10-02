@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_commerce_app/data/product/models/color.dart';
-import 'package:e_commerce_app/domain/product/entity/color.dart';
 import 'package:e_commerce_app/domain/product/entity/product.dart';
 
 class ProductModel {
