@@ -1,6 +1,8 @@
 import 'package:e_commerce_app/common/helper/images/image_display.dart';
+import 'package:e_commerce_app/common/helper/navigator/app_navigator.dart';
 import 'package:e_commerce_app/core/config/theme/app_colors.dart';
 import 'package:e_commerce_app/domain/product/entity/product.dart';
+import 'package:e_commerce_app/presentation/product_details/pages/product_details.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
@@ -13,18 +15,23 @@ class ProductCard extends StatelessWidget {
     return Column(children: [
       Expanded(
         flex: 4,
-        child: Container(
-          width: 200,
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(10), topRight: Radius.circular(10)),
-            color: Colors.white,
-            image: DecorationImage(
-              image: NetworkImage(
-                  ImageDisplayHelper.generateProductImageUrl(products.images[0])
-                  // 'https://firebasestorage.googleapis.com/v0/b/e-commerce-app-cb443.appspot.com/o/categories%2Fimages%2Fhoodie.jpg?alt=media&token=f0df5a15-add0-40f5-bdc8-0a7b9c53d808'
-                  ),
-              fit: BoxFit.fill,
+        child: GestureDetector(
+          onTap: () {
+            AppNavigator.push(context, ProductDetails(productEntity: products));
+          },
+          child: Container(
+            width: 200,
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+              color: Colors.white,
+              image: DecorationImage(
+                image: NetworkImage(ImageDisplayHelper.generateProductImageUrl(
+                        products.images[0])
+                    // 'https://firebasestorage.googleapis.com/v0/b/e-commerce-app-cb443.appspot.com/o/categories%2Fimages%2Fhoodie.jpg?alt=media&token=f0df5a15-add0-40f5-bdc8-0a7b9c53d808'
+                    ),
+                fit: BoxFit.fill,
+              ),
             ),
           ),
         ),

@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 
 class BasicAppButton extends StatelessWidget {
   final VoidCallback onPressed;
-  final String title;
+  final String? title;
   final double? height;
   final double? width;
+  final Widget? content;
 
   const BasicAppButton(
       {required this.onPressed,
-      required this.title,
+      this.title,
       this.height,
       this.width,
-      super.key});
+      super.key,
+      this.content});
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +25,11 @@ class BasicAppButton extends StatelessWidget {
             height ?? 50,
           ),
         ),
-        child: Text(
-          title,
-          style:
-              const TextStyle(color: Colors.white, fontWeight: FontWeight.w400),
-        ));
+        child: content ??
+            Text(
+              title ?? '',
+              style: const TextStyle(
+                  color: Colors.white, fontWeight: FontWeight.w500),
+            ));
   }
 }
