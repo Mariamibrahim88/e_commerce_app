@@ -1,13 +1,14 @@
 import 'package:e_commerce_app/common/widgets/appBar/app_bar.dart';
 import 'package:e_commerce_app/domain/product/entity/product.dart';
 import 'package:e_commerce_app/presentation/product_details/bloc/product_quantity_cubit.dart';
+import 'package:e_commerce_app/presentation/product_details/bloc/product_selection_color_cubit.dart';
 import 'package:e_commerce_app/presentation/product_details/widgets/add_to_bag.dart';
-import 'package:e_commerce_app/presentation/product_details/widgets/product_color.dart';
+import 'package:e_commerce_app/presentation/product_details/widgets/selected_color.dart';
 import 'package:e_commerce_app/presentation/product_details/widgets/product_images.dart';
 import 'package:e_commerce_app/presentation/product_details/widgets/product_price.dart';
 import 'package:e_commerce_app/presentation/product_details/widgets/product_quantity.dart';
 import 'package:e_commerce_app/presentation/product_details/widgets/product_title.dart';
-import 'package:e_commerce_app/presentation/product_details/widgets/product_sizes.dart';
+import 'package:e_commerce_app/presentation/product_details/widgets/selected_sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,6 +22,9 @@ class ProductDetails extends StatelessWidget {
       providers: [
         BlocProvider<ProductQuantityCubit>(
           create: (contexrt) => ProductQuantityCubit(),
+        ),
+        BlocProvider<ProductSelectionColorCubit>(
+          create: (contexrt) => ProductSelectionColorCubit(),
         ),
       ],
       child: Scaffold(
