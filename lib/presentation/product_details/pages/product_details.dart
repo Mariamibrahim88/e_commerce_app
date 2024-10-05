@@ -2,6 +2,7 @@ import 'package:e_commerce_app/common/widgets/appBar/app_bar.dart';
 import 'package:e_commerce_app/domain/product/entity/product.dart';
 import 'package:e_commerce_app/presentation/product_details/bloc/product_quantity_cubit.dart';
 import 'package:e_commerce_app/presentation/product_details/bloc/product_selection_color_cubit.dart';
+import 'package:e_commerce_app/presentation/product_details/bloc/product_size_cubit.dart';
 import 'package:e_commerce_app/presentation/product_details/widgets/add_to_bag.dart';
 import 'package:e_commerce_app/presentation/product_details/widgets/selected_color.dart';
 import 'package:e_commerce_app/presentation/product_details/widgets/product_images.dart';
@@ -26,6 +27,9 @@ class ProductDetails extends StatelessWidget {
         BlocProvider<ProductSelectionColorCubit>(
           create: (contexrt) => ProductSelectionColorCubit(),
         ),
+        BlocProvider<ProductSizeCubit>(
+          create: (contexrt) => ProductSizeCubit(),
+        ),
       ],
       child: Scaffold(
         bottomNavigationBar: AddToBag(productEntity: productEntity),
@@ -48,7 +52,9 @@ class ProductDetails extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                const SelectedSize(),
+                SelectedSize(
+                  productEntity: productEntity,
+                ),
                 const SizedBox(
                   height: 10,
                 ),
