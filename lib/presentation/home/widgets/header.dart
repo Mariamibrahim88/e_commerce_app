@@ -1,6 +1,8 @@
+import 'package:e_commerce_app/common/helper/navigator/app_navigator.dart';
 import 'package:e_commerce_app/core/config/assets/app_vectors.dart';
 import 'package:e_commerce_app/core/config/theme/app_colors.dart';
 import 'package:e_commerce_app/domain/auth/entity/user.dart';
+import 'package:e_commerce_app/presentation/cart/pages/cart.dart';
 import 'package:e_commerce_app/presentation/home/bloc/user_info_display_cubit.dart';
 import 'package:e_commerce_app/presentation/home/bloc/user_info_display_state.dart';
 import 'package:flutter/material.dart';
@@ -68,13 +70,18 @@ class Header extends StatelessWidget {
   }
 
   Widget _card(BuildContext context) {
-    return Container(
-      height: 40,
-      width: 40,
-      decoration: const BoxDecoration(
-        shape: BoxShape.circle,
+    return GestureDetector(
+      onTap: () {
+        AppNavigator.push(context, const CartPage());
+      },
+      child: Container(
+        height: 40,
+        width: 40,
+        decoration: const BoxDecoration(
+          shape: BoxShape.circle,
+        ),
+        child: Image.asset('assets/vectors/Frame 32.png'),
       ),
-      child: Image.asset('assets/vectors/Frame 32.png'),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/common/bloc/button/button_cubit.dart';
 import 'package:e_commerce_app/common/widgets/appBar/app_bar.dart';
 import 'package:e_commerce_app/domain/product/entity/product.dart';
 import 'package:e_commerce_app/presentation/product_details/bloc/product_quantity_cubit.dart';
@@ -29,6 +30,9 @@ class ProductDetails extends StatelessWidget {
         ),
         BlocProvider<ProductSizeCubit>(
           create: (contexrt) => ProductSizeCubit(),
+        ),
+        BlocProvider<ButtonCubit>(
+          create: (contexrt) => ButtonCubit(),
         ),
       ],
       child: Scaffold(

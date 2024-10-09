@@ -5,10 +5,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ReactiveButton extends StatelessWidget {
   final VoidCallback onPressed;
-  final String title;
+  final String? title;
   final double? height;
+  final Widget? content;
+
   const ReactiveButton(
-      {required this.onPressed, required this.title, this.height, super.key});
+      {required this.onPressed,
+      this.title,
+      this.height,
+      super.key,
+      this.content});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +27,15 @@ class ReactiveButton extends StatelessWidget {
   }
 
   Widget _loadingbutton(BuildContext context) {
-    return const Center(child: CircularProgressIndicator());
+    return ElevatedButton(
+        onPressed: null,
+        style: ElevatedButton.styleFrom(
+          minimumSize: Size.fromHeight(height ?? 50),
+        ),
+        child: Container(
+            height: height ?? 50,
+            alignment: Alignment.center,
+            child: const CircularProgressIndicator()));
   }
 
   Widget _initial(BuildContext context) {
@@ -30,10 +44,11 @@ class ReactiveButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           minimumSize: Size.fromHeight(height ?? 50),
         ),
-        child: Text(
-          title,
-          style:
-              const TextStyle(color: Colors.white, fontWeight: FontWeight.w400),
-        ));
+        child: content ??
+            Text(
+              title ?? ' ',
+              style: const TextStyle(
+                  color: Colors.white, fontWeight: FontWeight.w400),
+            ));
   }
 }
