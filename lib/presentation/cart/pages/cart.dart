@@ -2,6 +2,7 @@ import 'package:e_commerce_app/common/widgets/appBar/app_bar.dart';
 import 'package:e_commerce_app/domain/order/entity/product_ordered_entity.dart';
 import 'package:e_commerce_app/presentation/cart/bloc/cart_products_display_cubit.dart';
 import 'package:e_commerce_app/presentation/cart/bloc/cart_products_display_state.dart';
+import 'package:e_commerce_app/presentation/cart/widgets/check_out.dart';
 import 'package:e_commerce_app/presentation/cart/widgets/product_ordered_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,7 +26,16 @@ class CartPage extends StatelessWidget {
           if (state is CartProuctLoaded) {
             return Padding(
               padding: const EdgeInsets.all(8.0),
-              child: _buildCartProducts(state.cartProducts),
+              child: Stack(
+                children: [
+                  _buildCartProducts(state.cartProducts),
+                  Align(
+                      alignment: Alignment.bottomCenter,
+                      child: CheckOut(
+                        products: state.cartProducts,
+                      )),
+                ],
+              ),
             );
           }
           if (state is CartProuctFailure) {

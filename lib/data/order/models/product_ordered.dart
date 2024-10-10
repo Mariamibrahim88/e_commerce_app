@@ -10,17 +10,20 @@ class ProductOrderedModel {
   final double totalPrice;
   final String productImage;
   final String createdDate;
+  final String id;
 
-  ProductOrderedModel(
-      {required this.productId,
-      required this.productTitle,
-      required this.productQuantity,
-      required this.productColor,
-      required this.productSize,
-      required this.productPrice,
-      required this.totalPrice,
-      required this.productImage,
-      required this.createdDate});
+  ProductOrderedModel({
+    required this.productId,
+    required this.productTitle,
+    required this.productQuantity,
+    required this.productColor,
+    required this.productSize,
+    required this.productPrice,
+    required this.totalPrice,
+    required this.productImage,
+    required this.createdDate,
+    required this.id,
+  });
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
@@ -33,6 +36,7 @@ class ProductOrderedModel {
       'totalPrice': totalPrice,
       'images': productImage,
       'createdData': createdDate,
+      'id': id,
     };
   }
 
@@ -47,7 +51,7 @@ class ProductOrderedModel {
       totalPrice: map['totalPrice'] as double,
       productImage: map['images'] as String,
       createdDate: map['createdData'] as String,
-      //id: map['id'] as String,
+      id: map['id'] as String,
     );
   }
 }
@@ -63,6 +67,7 @@ extension ProductOrderedXModel on ProductOrderedModel {
         productPrice: productPrice,
         totalPrice: totalPrice,
         productImage: productImage,
-        createdDate: createdDate);
+        createdDate: createdDate,
+        id: id);
   }
 }

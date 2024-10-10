@@ -22,4 +22,14 @@ class OrderRepositoryImp extends OrderRepository {
           .toList());
     });
   }
+
+  @override
+  Future<Either> removeCartProducts(String id) async {
+    var returnedData = await sl<OrderFirebaseService>().removeCartProducts(id);
+    return returnedData.fold((error) {
+      return Left(error);
+    }, (data) {
+      return Right(data);
+    });
+  }
 }
