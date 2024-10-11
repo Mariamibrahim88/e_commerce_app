@@ -1,10 +1,10 @@
 import 'package:e_commerce_app/common/helper/cart/cart.dart';
+import 'package:e_commerce_app/common/helper/navigator/app_navigator.dart';
 import 'package:e_commerce_app/common/widgets/button/basic_app_button.dart';
 import 'package:e_commerce_app/core/config/theme/app_colors.dart';
+import 'package:e_commerce_app/presentation/cart/pages/check_out_page.dart';
 import 'package:flutter/material.dart';
 import '../../../domain/order/entity/product_ordered_entity.dart';
-
-import 'package:flutter/widgets.dart';
 
 class CheckOut extends StatelessWidget {
   final List<ProductOrderedEntity> products;
@@ -24,7 +24,11 @@ class CheckOut extends StatelessWidget {
           _customRow('Tax', '\$0.0'),
           _customRow(
               'Total', '\$${CartHelper.calculateCartSubTotal(products) + 8}'),
-          BasicAppButton(title: 'Checkout', onPressed: () {}),
+          BasicAppButton(
+              title: 'Checkout',
+              onPressed: () {
+                AppNavigator.push(context, CheckOutPage(products: products));
+              }),
         ],
       ),
     );

@@ -1,4 +1,6 @@
 import 'package:e_commerce_app/common/widgets/appBar/app_bar.dart';
+import 'package:e_commerce_app/common/widgets/button/basic_app_button.dart';
+import 'package:e_commerce_app/core/config/assets/app_vectors.dart';
 import 'package:e_commerce_app/domain/order/entity/product_ordered_entity.dart';
 import 'package:e_commerce_app/presentation/cart/bloc/cart_products_display_cubit.dart';
 import 'package:e_commerce_app/presentation/cart/bloc/cart_products_display_state.dart';
@@ -24,19 +26,21 @@ class CartPage extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           }
           if (state is CartProuctLoaded) {
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Stack(
-                children: [
-                  _buildCartProducts(state.cartProducts),
-                  Align(
-                      alignment: Alignment.bottomCenter,
-                      child: CheckOut(
-                        products: state.cartProducts,
-                      )),
-                ],
-              ),
-            );
+            return state.cartProducts.isEmpty
+                ? _emptyCart(context)
+                : Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Stack(
+                      children: [
+                        _buildCartProducts(state.cartProducts),
+                        Align(
+                            alignment: Alignment.bottomCenter,
+                            child: CheckOut(
+                              products: state.cartProducts,
+                            )),
+                      ],
+                    ),
+                  );
           }
           if (state is CartProuctFailure) {
             return Text(state.errMessage);
@@ -56,6 +60,35 @@ class CartPage extends StatelessWidget {
           productOrderedEntity: products[index],
         );
       },
+    );
+  }
+
+  Widget _emptyCart(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(
+            AppVectors.cart,
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          const Text(
+            'Your Cart is Empty',
+            style: TextStyle(fontSize: 30),
+          ),
+          const SizedBox(
+            height: 25,
+          ),
+          BasicAppButton(
+            onPressed: () {},
+            title: 'Explore Categories',
+            width: 120,
+            height: 60,
+          ),
+        ],
+      ),
     );
   }
 }

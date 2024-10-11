@@ -71,3 +71,19 @@ extension ProductOrderedXModel on ProductOrderedModel {
         id: id);
   }
 }
+
+extension ProductOrderedXEntity on ProductOrderedEntity {
+  ProductOrderedModel fromEntity() {
+    return ProductOrderedModel(
+        productId: productId,
+        productTitle: productTitle,
+        productQuantity: productQuantity,
+        productColor: productColor,
+        productSize: productSize,
+        productPrice: productPrice,
+        totalPrice: totalPrice,
+        productImage: productImage,
+        createdDate: createdDate,
+        id: id);
+  }
+}
