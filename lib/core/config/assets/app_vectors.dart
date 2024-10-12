@@ -7,4 +7,5 @@ class AppVectors {
   static const profile = '${basePath}profile$formatt';
   static const search = '${basePath}search$formatt';
   static const cart = '${basePath}cart$formatt';
+  static const order = '${basePath}order$formatt';
 }
